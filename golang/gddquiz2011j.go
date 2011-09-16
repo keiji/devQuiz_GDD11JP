@@ -19,7 +19,7 @@ func CountColor(reader io.Reader) int {
             for j := 0; j < rect.Size().Y; j++ {
                 var pixel image.Color = decodedPng.At(i, j)
 	var r,g,b,_ uint32 = pixel.RGBA()
-	var key uint = (uint)((r << 26) + (g << 8) + (b))
+	var key uint = (uint)((r << 16) + (g << 8) + (b))
 
 	if _, ok := count[strconv.Uitoa(key)]; ok {
 	    count[strconv.Uitoa(key)]++
